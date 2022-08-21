@@ -5,6 +5,10 @@
   font-family: 'Raleway', serif !important;
 }
 
+body {
+background-color: rgb(248, 249, 250);
+}
+
 .jumbotron .display-4 {
   font-weight: bold;
 }
@@ -12,7 +16,7 @@
 nav a {
   text-decoration: none;
 }
-
+ 
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -26,6 +30,50 @@ nav a {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
+}
+
+form p {
+  color: red;
+  height: 30px;
+  padding-top: 10px;
+
+}
+
+.contenedorLogin .botonLogin {
+  background-color: rgb(13,110,253);
+  color: white;
+  border-color:  rgb(13,110,253);
+  border-radius: 5px;
+  width: 95px;
+  height: 45px;
+}
+
+.contenedorLogin .inputLogin {
+  width: 15%;
+  height: 35px;
+}
+
+.contenedorLogin .tituloContenedor {
+  font-size: 30px;
+}
+
+.contenedorLogin {
+text-align: center;
+margin-top: 5%;
+color:black;
+padding-top: 15px;
+
+}
+
+.contenedorLogin .login {
+width: 85%;
+padding-top: 10px;
+
+}
+
+.contenedorLogin .foto {
+  height: auto;
+  width: 400px;
 }
 
 .jumbotron {
@@ -61,6 +109,10 @@ nav a {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   text-shadow: 1px 1px 2px grey;
+}
+
+.container {
+  padding-top: 10%;
 }
 
 .jumbotron .lead {
