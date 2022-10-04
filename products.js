@@ -15,7 +15,7 @@ function showProductsList(array) {
     let product = array[i];
     htmlContentToAppend +=
       `
-        <div class="list-group-item list-group-item-action">
+        <div onclick="setProdID(` + product.id + `)" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` +
@@ -48,6 +48,11 @@ function showProductsList(array) {
   }
 }
 
+function setProdID(id){
+  localStorage.setItem("prodID", id);
+  window. location = "product-info.html"
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   let catId = localStorage.getItem("catID");
   getJSONData(PRODUCTS_URL + catId + EXT_TYPE).then(function (resultObj) {
@@ -58,15 +63,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
   document.getElementById("sortAsc").addEventListener("click", function () {
-    sortAndShowProducts(ORDER_ASC_BY_COST);
+    sortAndShowProducts(ORDER_ASC_BY_COST, productsArray);
   });
 
   document.getElementById("sortDesc").addEventListener("click", function () {
-    sortAndShowProducts(ORDER_DESC_BY_COST);
+    sortAndShowProducts(ORDER_DESC_BY_COST, productsArray);
   });
 
   document.getElementById("sortByCount").addEventListener("click", function () {
-    sortAndShowProducts(ORDER_BY_PROD_REL);
+    sortAndShowProducts(ORDER_BY_PROD_REL, productsArray);
   });
 
   document
@@ -84,8 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("rangeFilterCount")
     .addEventListener("click", function () {
-      //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
-      //de productos por categoría.
       minCount = document.getElementById("rangeFilterCountMin").value;
       maxCount = document.getElementById("rangeFilterCountMax").value;
 
@@ -160,11 +163,7 @@ function sortAndShowProducts(sortCriteria, Arry) {
     currentCategoriesArray
   );
 
-  //Muestro las categorías ordenadas
   showProductsList();
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 
