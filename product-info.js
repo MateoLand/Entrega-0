@@ -8,7 +8,7 @@ function CeroIzq(tiempo){
     }
 }
 
-function fechaCompleta(fecha){
+/*function fechaCompleta(fecha){
     let año = fecha.getFullYear()
     let mes = CeroIzq(fecha.getMonth());
     let dia = CeroIzq(fecha.getDate());
@@ -17,7 +17,7 @@ function fechaCompleta(fecha){
     let Seg = CeroIzq(fecha.getSeconds())
 
     return año+'-'+mes+'-'+dia +' '+horas+':'+min+':'+Seg;
-}
+}*/
 
 function puntuación(puntos){
     var estrellas='';
@@ -128,6 +128,7 @@ function mostrarComentarios(listaComment) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+    getEmail()
     prodId = localStorage.getItem("prodID");
     getJSONData(PRODUCT_INFO_URL + prodId + EXT_TYPE).then(function(resultObj) {
         if (resultObj.status === "ok") {

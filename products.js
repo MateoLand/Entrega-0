@@ -48,12 +48,8 @@ function showProductsList(array) {
   }
 }
 
-function setProdID(id){
-  localStorage.setItem("prodID", id);
-  window. location = "product-info.html"
-}
-
 document.addEventListener("DOMContentLoaded", function () {
+  getEmail()
   let catId = localStorage.getItem("catID");
   getJSONData(PRODUCTS_URL + catId + EXT_TYPE).then(function (resultObj) {
     if (resultObj.status === "ok") {

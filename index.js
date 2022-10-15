@@ -1,13 +1,7 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    let email = localStorage.getItem("mail")
-    if (email == null) {
-        alert("Vaya a Loggearse >:(");
-        location.href = "login.html";
-    } else {
-        document.getElementById("email").innerHTML = email;
-    }
+    getEmail()
     document.getElementById("autos").addEventListener("click", function () {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
@@ -22,3 +16,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
