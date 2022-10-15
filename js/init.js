@@ -39,3 +39,34 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+function getEmail(){
+  let email = localStorage.getItem("mail")
+    if (email == null) {
+        alert("Vaya a Loggearse >:(");
+        location.href = "login.html";
+    } else {
+        document.getElementById("email").innerHTML = `
+        <div class="collapse navbar-collapse" id="navbarDarkDropdown">
+              <ul class="navbar-nav w-100 justify-content-between">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDarkDropdownLinks" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  ${email}
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                    <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="login.html" onclick="localStorage.removeItem('gmail')">Cerrar sesión</a></li>
+                  </ul>
+                </li>
+              </ul>
+        
+        </div>`;
+    }
+}
+
+function setProdID(id){
+  localStorage.setItem("prodID", id);
+  window. location = "product-info.html"
+}
