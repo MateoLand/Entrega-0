@@ -36,13 +36,102 @@
       </div>
     </div>
   </nav>
-  <main>
+  
+  <!----------------------------------------------------------->
+  
+  <main class="d-flex flex-column align-content-center justify-content-center align-items-center">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="text-center p-4">
+        <h2>Tu Carrito</h2>
+      </div>
+      <table class="table caption-top">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col" class="text-center">Nombre</th>
+            <th scope="col" class="text-center">Costo unitario</th>
+            <th scope="col" class="text-center">Cantidad</th>
+            <th scope="col" class="text-center">Sub-total</th>
+          </tr>
+        </thead>
+        <tbody id="cartProd">
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="container address-and-shipment-container me-0 ms-0">
+      <div class="row">
+        <div class="col-6"></div>
+        <form action="" id="address-and-shipment">
+          <fieldset id="shipment-type-selector" class="mb-3">
+            <legend>Tipo de envío</legend>
+
+            <input
+              type="radio"
+              id="premium"
+              name="shiptment-type"
+            />
+            <label for="premium">Premium 2 a 5 días (15%)</label>
+            <br />
+
+            <input
+              type="radio"
+              id="express"
+              name="shiptment-type"
+            />
+            <label for="express">Express 5 a 8 días (7%)</label>
+            <br />
+
+            <input
+              type="radio"
+              id="standard"
+              name="shiptment-type"
+            />
+            <label for="standard">Standard 12 a 15 días (5%)</label>
+          </fieldset>
+
+          <fieldset id="address-inputs">
+            <div class="row">
+              <legend>Dirección de envío</legend>
+              <div class="col-5">
+                <label for="address-street">Calle</label>
+                <br />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address-street"
+                />
+              </div>
+              <div class="col-3">
+                <label for="address-number">Número</label>
+                <br />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address-number"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <label for="corner-street">Esquina</label>
+                <br />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="corner-street"
+                />
+              </div>
+            </div>
+          </fieldset>
+        </form>
       </div>
     </div>
   </main>
+  
+  <!----------------------------------------------------------->
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
