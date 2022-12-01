@@ -71,6 +71,8 @@
               type="radio"
               id="premium"
               name="shiptment-type"
+              value = "premium"
+              oninput = "actualizarInputs()"
             />
             <label for="premium">Premium 2 a 5 días (15%)</label>
             <br />
@@ -79,6 +81,9 @@
               type="radio"
               id="express"
               name="shiptment-type"
+              value = "express"
+              oninput = "actualizarInputs()"
+              
             />
             <label for="express">Express 5 a 8 días (7%)</label>
             <br />
@@ -87,6 +92,9 @@
               type="radio"
               id="standard"
               name="shiptment-type"
+              value = "standard"
+              oninput = "actualizarInputs()"
+
             />
             <label for="standard">Standard 12 a 15 días (5%)</label>
           </fieldset>
@@ -101,15 +109,17 @@
                   type="text"
                   class="form-control"
                   id="address-street"
+                  required
                 />
               </div>
               <div class="col-3">
                 <label for="address-number">Número</label>
                 <br />
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
                   id="address-number"
+                  required
                 />
               </div>
             </div>
@@ -121,13 +131,81 @@
                   type="text"
                   class="form-control"
                   id="corner-street"
+                  required
                 />
               </div>
             </div>
           </fieldset>
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Forma de pago</h5>
+              </div>
+              <div class="modal-body">
+                <fieldset id="pay-method">
+                  <div class="d-block">
+                    <input type="radio" id="credit" name="payMethod" value="credit-card" oninput="actualizarTransferencia()" required>
+                    <label for="credit">Tarjeta de crédito</label>
+                  </div>
+                  <div id="div-credit">
+                    <div class="d-inline-block">
+                      <label for="card-number" class="d-block">Número de tarjeta</label>
+                      <input type="number" id="card-number" name="card-number" required>
+                    </div>
+                    <div class="d-inline-block  ms-3">
+                      <label for="card-code" class="d-block">Código de seg.</label>
+                      <input type="number" class="w-50" id="card-code" name="card-code" required>
+                    </div>
+                    <label for="card-expiration-date" class="d-block">Vencimiento (MM/AA)</label>
+                    <input type="date" id="card-expiration-date" name="card-expiration-date" required>
+                  </div>
+                  <div class="border-top mt-2 pt-4" id="div-transfer">
+                    <div class="d-inline-block">
+                      <input type="radio" id="transfer" name="payMethod" value="bank-transfer" oninput="actualizarTransferencia()" required>
+                      <label for="transfer">Transferencia bancaria</label>
+                    </div>
+                    <div id = "transferencia-div">
+                    <label for="bank-account-number" class="d-block pt-3">Número de cuenta</label>
+                    <input type="number" id="bank-account-number" name="bank-account-number" required>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="select-method" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
         </form>
+        <div class="list-group my-3" id="div-cost">
+          <h4>Costos</h4>
+          <div class="list-group-item">
+            <p class="d-inline-block">Subtotal</p>
+            <p class="float-end" id="general-subtotal"></p>
+            <small class="d-block">Costo unitario del producto por cantidad</small>
+          </div>
+          <div class="list-group-item">
+            <p class="d-inline-block">Costo de envío</p>
+            <p class="float-end" id="shipping-cost" >No has seleccionado tipo de envío</p>
+            <small class="d-block">Según el tipo de envío</small>
+          </div>
+          <div class="list-group-item">
+            <p class="d-inline-block">Total ($)</p>
+            <p class="float-end" id="total-cost"></p>
+          </div>
+        </div>
+        <h4>Forma de pago</h4>
+        <p id="pay-method-selected" class="d-inline">No ha seleccionado</p>
+        <a class="d-inline" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Seleccionar</a>
+        <p id="pay-method-data" class="d-block error-msg"></p>
+        <button type="submit" class="btn btn-primary d-block w-100 mt-5 py-2" form="pay-form" onclick="validacion()">Finalizar compra</button>
+      </div>
       </div>
     </div>
+
   </main>
   
   <!----------------------------------------------------------->
